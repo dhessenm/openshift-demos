@@ -1,9 +1,9 @@
-= OpenShift Demo MySQL Datenbank mit Persistent Storage
+# OpenShift Demo MySQL Datenbank mit Persistent Storage
 Doku: https://docs.openshift.com/container-platform/3.6/using_images/db_images/mysql.html
 
 Gute Demo: https://blog.openshift.com/openshift-demo-part-12-using-persistent-storage/
 
-== Konfiguriere NFS Server
+## Konfiguriere NFS Server
 hosts: ns1
 Anlegen von NFS Share Verzeichnissen
 
@@ -29,7 +29,7 @@ systemctl nfs start
 showmount -e
 ```
 
-== Konfiguriere OpenShift Server
+## Konfiguriere OpenShift Server
 hosts: osmaster1 und osnode1
 Test
 
@@ -44,7 +44,7 @@ SELinux konfigurieren, damit Pods auf NFS Volumes zugreifen können:
 setsebool -P virt_use_nfs 1
 ```
 
-== Erzeuge Persistent Volume
+## Erzeuge Persistent Volume
 
 Erzeuge PV Datei, Beispiel pv0002.yml:
 
@@ -71,7 +71,7 @@ Mache persistent storage in OpenShift verfügbar:
 oc create -f pv0002.yml
 ```
 
-== Erzeuge MySQL DB mit persistent storage
+## Erzeuge MySQL DB mit persistent storage
 Erzeuge im Projekt ein Persistent Volume Claim (PVC). Dieses ist direkt im OpenShift Templete Mysql Persistent (Namespase OpenShift) enthalten. Führe das Template im eigenen Namespace aus. Wähle und merke MySQL-Daten, z. B.:
 
 ```
@@ -81,7 +81,7 @@ Database Name: sampledb
 Connection URL: mysql://mysql:3306/
 ```
 
-== Checke Datenpersistenz in derv Datenbank
+## Checke Datenpersistenz in derv Datenbank
 
 ```
 oc get pods

@@ -132,4 +132,5 @@ select * from users;
 
 # References
 Doku: https://docs.openshift.com/container-platform/3.6/using_images/db_images/mysql.html
+
 Gute Demo: https://blog.openshift.com/openshift-demo-part-12-using-persistent-storage/
